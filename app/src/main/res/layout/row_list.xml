@@ -21,7 +21,7 @@
             android:gravity="center"
             android:background="@android:color/holo_red_dark"
             android:textColor="@android:color/white"
-            android:text="Call Contact"/>
+            android:text="Delete"/>
     </FrameLayout>
 
     <FrameLayout
@@ -32,7 +32,7 @@
       <RelativeLayout
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:id="@+id/relativelayout"
+          android:id="@+id/relativela"
           >
 
           <nikhil.com.smsapplication.Views.CircularImageview

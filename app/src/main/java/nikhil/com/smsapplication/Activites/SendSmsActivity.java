@@ -110,7 +110,7 @@ public class SendSmsActivity extends AppCompatActivity {
                     selectedPhoneNumber = phonenumber;
                     autoCompleteTextView.setFocusable(false);
                     autoCompleteTextView.setText(intent.getStringExtra("name"));
-                    contactPicker.setVisibility(View.GONE);
+                    contactPicker.setVisibility(View.INVISIBLE);
                     messageArrayList.addAll(getAllSmsModel(selectedPhoneNumber));
                 }
             }
@@ -251,14 +251,16 @@ Instantiate and pass a callback
 
                             if (!fromIntent) {
                                 softKeyboard.closeSoftKeyboard();
-
-                                messageArrayList.addAll(getAllSmsModel(autoCompleteTextView.getText().toString()));
+                                messageArrayList.clear();
                                 Message message = new Message();
                                 message.setMessage(inputMessage.getText().toString());
                                 message.setUser("2");
                                 messageArrayList.add(message);
+                                messageArrayList.addAll(getAllSmsModel(autoCompleteTextView.getText().toString()));
+
                                 mAdapter.notifyDataSetChanged();
                                 recyclerView.scrollToPosition(mAdapter.getItemCount() - 1);
+
 
                                 try {
 
@@ -281,18 +283,21 @@ Instantiate and pass a callback
 
                         if (!fromIntent) {
                             softKeyboard.closeSoftKeyboard();
-                            messageArrayList.addAll(getAllSmsModel(selectedPhoneNumber));
-                            Message message = new Message();
-                            message.setMessage(inputMessage.getText().toString());
-                            message.setUser("2");
-                            messageArrayList.add(message);
-                            mAdapter.notifyDataSetChanged();
-                            recyclerView.scrollToPosition(mAdapter.getItemCount() - 1);
+
                             SmsManager smsManager = SmsManager.getDefault();
                             smsManager.sendTextMessage(selectedPhoneNumber, null, inputMessage.getText().toString(), null, null);
                             Toast.makeText(getApplicationContext(), "SMS sent.",
                                     Toast.LENGTH_LONG).show();
                             inputMessage.setText("");
+                            messageArrayList.clear();
+                            Message message = new Message();
+                            message.setMessage(inputMessage.getText().toString());
+                            message.setUser("2");
+                            messageArrayList.add(message);
+                            messageArrayList.addAll(getAllSmsModel(selectedPhoneNumber));
+
+                            mAdapter.notifyDataSetChanged();
+                            recyclerView.scrollToPosition(mAdapter.getItemCount() - 1);
                         }
                     }
 

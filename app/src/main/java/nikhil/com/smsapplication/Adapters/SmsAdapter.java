@@ -26,7 +26,10 @@ import com.chauthai.swipereveallayout.ViewBinderHelper;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import nikhil.com.smsapplication.Activites.SendSmsActivity;
@@ -85,7 +88,7 @@ public class SmsAdapter extends RecyclerView.Adapter {
             // Bind your data here
             ContactModel contactModel = getContactName(mContext, data.getAddress());
 
-            holder.bind(data, contactModel,data.getAddress());
+            holder.bind(data, contactModel, data.getAddress());
         }
     }
 
@@ -157,7 +160,7 @@ public class SmsAdapter extends RecyclerView.Adapter {
     private class ViewHolder extends RecyclerView.ViewHolder {
         private SwipeRevealLayout swipeLayout;
         private View deleteLayout;
-        private TextView title, message;
+        private TextView title, message, createdAt;
         private CircularImageview profilePic;
         private RelativeLayout relativeLayout;
 
@@ -169,9 +172,10 @@ public class SmsAdapter extends RecyclerView.Adapter {
             message = (TextView) itemView.findViewById(R.id.message);
             profilePic = (CircularImageview) itemView.findViewById(R.id.profilePic);
             relativeLayout = (RelativeLayout) itemView.findViewById(R.id.relativelayout);
+            createdAt = (TextView) itemView.findViewById(R.id.createdAt);
         }
 
-        public void bind(SmsModel data, final ContactModel contactModel ,final String address) {
+        public void bind(SmsModel data, final ContactModel contactModel, final String address) {
             deleteLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -203,15 +207,29 @@ public class SmsAdapter extends RecyclerView.Adapter {
             swipeLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    mContext.startActivity(new Intent(mContext, SendSmsActivity.class).putExtra("name",title.getText().toString()).putExtra("number",address));               }
+                    mContext.startActivity(new Intent(mContext, SendSmsActivity.class).putExtra("name", title.getText().toString()).putExtra("number", address));
+                }
             });
             relativeLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    mContext.startActivity(new Intent(mContext, SendSmsActivity.class).putExtra("name",title.getText().toString()).putExtra("number",address));
+                    mContext.startActivity(new Intent(mContext, SendSmsActivity.class).putExtra("name", title.getText().toString()).putExtra("number", address));
 
-            }
+                }
             });
+
+
+            // String timestamp = getTimeStamp(message.getCreatedAt());
+            DateFormat df = new SimpleDateFormat("d MMM");
+            if (data.getTime() != null && !data.getTime().isEmpty()) {
+                String timestamp = df.format(Long.parseLong(data.getTime()));
+
+                createdAt.setText(timestamp);
+            } else {
+
+
+                createdAt.setText("");
+            }
         }
 
 

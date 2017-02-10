@@ -26,7 +26,7 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         Bundle bundle = intent.getExtras();
         SmsMessage[] msgs = null;
-        String str = "no message received";
+        String str = "";
         if (bundle != null) {
 
             Object[] pdus = (Object[]) bundle.get("pdus");
@@ -42,14 +42,22 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
 
 
             }
-            NotificationCompat.Builder mBuilder =
+            NotificationCompat.Builder builder =
                     new NotificationCompat.Builder(context)
-                            .setSmallIcon(R.mipmap.ic_launcher)
+                            .setSmallIcon(R.drawable.ic_launcher)
                             .setContentTitle("New Message")
                             .setContentText(str);
 
+            Intent notificationIntent = new Intent(context, MainActivity.class);
+            PendingIntent contentIntent = PendingIntent.getActivity(context, 0, notificationIntent,
+                    PendingIntent.FLAG_UPDATE_CURRENT);
+            builder.setContentIntent(contentIntent);
 
-           Toast.makeText(context, str, Toast.LENGTH_SHORT).show();
+            // Add as notification
+            NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+            manager.notify(0, builder.build());
+
+
         }
     }
 }

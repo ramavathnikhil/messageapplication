@@ -41,6 +41,8 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.security.PublicKey;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
@@ -69,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        elementsIntilization(); // function where you can find all elements intilziated
+
 
     }
 
@@ -358,7 +360,14 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
                     cursor.moveToNext();
                 }
+
+
                 lstSmsModel.addAll(new ArrayList<SmsModel>(smsMaps.values()));
+                Collections.sort(lstSmsModel, new Comparator<SmsModel>() {
+                    public int compare(SmsModel s1, SmsModel s2) {
+                        return s2.getTime().compareToIgnoreCase(s1.getTime());
+                    }
+                });
             }
 
 
@@ -473,7 +482,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     @Override
     protected void onResume() {
         super.onResume();
-
+        elementsIntilization(); // function where you can find all elements intilziated
     }
 
     @Override

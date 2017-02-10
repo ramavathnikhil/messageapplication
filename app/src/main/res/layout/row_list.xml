@@ -5,7 +5,7 @@
     android:id="@+id/swipe_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="5dp"
+
     app:dragEdge="right"
     app:mode="same_level">
 
@@ -32,7 +32,7 @@
       <RelativeLayout
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:id="@+id/relativela"
+          android:id="@+id/relativelayout"
           >
 
           <nikhil.com.smsapplication.Views.CircularImageview
@@ -60,10 +60,23 @@
               android:text="Message"
               android:layout_toRightOf="@+id/profilePic"
               android:paddingLeft="10dp"
+              android:layout_toLeftOf="@+id/createdAt"
               android:singleLine="true"
               android:layout_below="@+id/title"
               android:textAppearance="?android:attr/textAppearanceSmall"
               />
+
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:id="@+id/createdAt"
+              android:text="Created At"
+              android:layout_alignParentRight="true"
+              android:paddingRight="5dp"
+              android:paddingLeft="5dp"
+              android:singleLine="true"
+              android:layout_below="@+id/title"
+                />
 
       </RelativeLayout>
     </FrameLayout>

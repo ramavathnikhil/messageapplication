@@ -88,11 +88,17 @@ public class ChatRoomThreadAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         Message message = messageArrayList.get(position);
         ((ViewHolder) holder).message.setText(message.getMessage());
 
-       // String timestamp = getTimeStamp(message.getCreatedAt());
+        // String timestamp = getTimeStamp(message.getCreatedAt());
         DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy, HH:mm");
-        String timestamp = df.format(Calendar.getInstance().getTime());
+        if (message.getCreatedAt() != null && !message.getCreatedAt().isEmpty()) {
+            String timestamp = df.format(Long.parseLong(message.getCreatedAt()));
 
-        ((ViewHolder) holder).timestamp.setText(timestamp);
+            ((ViewHolder) holder).timestamp.setText(timestamp);
+        } else {
+            String timestamp = df.format(Calendar.getInstance().getTime());
+
+            ((ViewHolder) holder).timestamp.setText(timestamp);
+        }
     }
 
     @Override

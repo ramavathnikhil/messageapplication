@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.chauthai.swipereveallayout.SwipeRevealLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipe_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    app:dragEdge="right"
+    app:mode="same_level">
+
+    <FrameLayout
+        android:id="@+id/delete_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:background="#ffcc0000">
+
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="@android:color/holo_red_dark"
+            android:textColor="@android:color/white"
+            android:text="Delete"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+       >
+
+      <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+          <nikhil.com.smsapplication.Views.CircularImageview
+              android:layout_width="@dimen/circular_profile_pic_size"
+              android:layout_height="@dimen/circular_profile_pic_size"
+              android:src="@android:drawable/ic_menu_close_clear_cancel"
+              android:id="@+id/profilePic"
+
+              />
+
+          <TextView
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:id="@+id/title"
+              android:text="Title"
+              android:layout_toRightOf="@+id/profilePic"
+              android:paddingLeft="10dp"
+              android:textAppearance="?android:attr/textAppearanceMedium"
+              />
+
+          <TextView
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:id="@+id/message"
+              android:text="Message"
+              android:layout_toRightOf="@+id/profilePic"
+              android:paddingLeft="10dp"
+              android:singleLine="true"
+              android:layout_below="@+id/title"
+              android:textAppearance="?android:attr/textAppearanceSmall"
+              />
+
+      </RelativeLayout>
+    </FrameLayout>
+</com.chauthai.swipereveallayout.SwipeRevealLayout>

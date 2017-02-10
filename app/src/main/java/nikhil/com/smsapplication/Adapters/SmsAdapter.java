@@ -4,6 +4,7 @@ package nikhil.com.smsapplication.Adapters;
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -17,6 +18,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.chauthai.swipereveallayout.SwipeRevealLayout;
@@ -27,6 +29,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import nikhil.com.smsapplication.Activites.SendSmsActivity;
 import nikhil.com.smsapplication.Models.ContactModel;
 import nikhil.com.smsapplication.Models.SmsModel;
 import nikhil.com.smsapplication.R;
@@ -82,7 +85,7 @@ public class SmsAdapter extends RecyclerView.Adapter {
             // Bind your data here
             ContactModel contactModel = getContactName(mContext, data.getAddress());
 
-            holder.bind(data, contactModel);
+            holder.bind(data, contactModel,data.getAddress());
         }
     }
 
@@ -113,7 +116,6 @@ public class SmsAdapter extends RecyclerView.Adapter {
                     contactModel.setProfilePic(photo);
                     inputStream.close();
                 }
-
 
 
             } catch (IOException e) {
@@ -157,6 +159,7 @@ public class SmsAdapter extends RecyclerView.Adapter {
         private View deleteLayout;
         private TextView title, message;
         private CircularImageview profilePic;
+        private RelativeLayout relativeLayout;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -165,9 +168,10 @@ public class SmsAdapter extends RecyclerView.Adapter {
             title = (TextView) itemView.findViewById(R.id.title);
             message = (TextView) itemView.findViewById(R.id.message);
             profilePic = (CircularImageview) itemView.findViewById(R.id.profilePic);
+            relativeLayout = (RelativeLayout) itemView.findViewById(R.id.relativelayout);
         }
 
-        public void bind(SmsModel data, ContactModel contactModel) {
+        public void bind(SmsModel data, final ContactModel contactModel ,final String address) {
             deleteLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -184,20 +188,30 @@ public class SmsAdapter extends RecyclerView.Adapter {
 
             if (contactModel != null && contactModel.getProfilePic() != null) {
                 profilePic.setImageBitmap(contactModel.getProfilePic());
-            }
-            else
-            {
+            } else {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    profilePic.setImageDrawable(mContext.getDrawable( R.drawable.ic_user));
-                }
-                else
-                {
+                    profilePic.setImageDrawable(mContext.getDrawable(R.drawable.ic_user));
+                } else {
                     profilePic.setImageDrawable(mContext.getResources().getDrawable(R.drawable.ic_user
                     ));
                 }
             }
 
             message.setText(data.getMsg());
+
+
+            swipeLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mContext.startActivity(new Intent(mContext, SendSmsActivity.class).putExtra("name",title.getText().toString()).putExtra("number",address));               }
+            });
+            relativeLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mContext.startActivity(new Intent(mContext, SendSmsActivity.class).putExtra("name",title.getText().toString()).putExtra("number",address));
+
+            }
+            });
         }
 
 

@@ -34,6 +34,7 @@
                     android:layout_toLeftOf="@+id/getContact"
                     android:background="@null"
                     android:ems="10"
+                    android:inputType="phone"
                     android:hint="To"
                     android:text="" />
 

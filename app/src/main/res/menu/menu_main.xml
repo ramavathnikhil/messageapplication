@@ -11,5 +11,6 @@
     <item android:id="@+id/backup"
         android:icon="@drawable/ic_backup"
         app:showAsAction="ifRoom"
+        android:visible="false"
         android:title="Backup"/>
 </menu>

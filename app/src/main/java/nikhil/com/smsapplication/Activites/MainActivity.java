@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
         //RECYCLERVIEW INTILIZATION
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));//ui
         smsAdapter = new SmsAdapter(this, getAllSmsModel());
         recyclerView.setAdapter(smsAdapter);
 
@@ -277,6 +277,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         sendSms.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 startActivity(new Intent(MainActivity.this, SendSmsActivity.class));
             }
         });
@@ -457,7 +458,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                     } else {
                         objSmsModel.setFolderName("sent");
                     }
-                    if (objSmsModel.getMsg().matches("(?i:.*" + query + ".*)") || objSmsModel.getAddress().matches("(?i:.*" + query + ".*)")) {
+                    if (objSmsModel.getMsg()!=null && objSmsModel.getAddress()!=null && (objSmsModel.getMsg().matches("(?i:.*" + query + ".*)") || objSmsModel.getAddress().matches("(?i:.*" + query + ".*)"))) {
                         lstSmsModel.add(objSmsModel);
                     }
 

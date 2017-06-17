@@ -371,13 +371,13 @@ Instantiate and pass a callback
 
                     String contactNumberTemp = cursor.getString(cursor
                             .getColumnIndexOrThrow("address"));
-                    if (contactNumberTemp.substring(0, 0).replaceAll("\\s+", "").equals("+")) {
+                    if (contactNumberTemp!=null && contactNumberTemp.substring(0, 0).replaceAll("\\s+", "").equals("+")) {
                         // assign value string value expect first character
                         contactNumberTemp = contactNumberTemp.substring(1);
                     }
 
 
-                    if (contactNumberTemp.equals(selectedPhoneNumber))
+                    if (contactNumberTemp!=null && contactNumberTemp.equals(selectedPhoneNumber))
                         lstSmsModel.add(objSmsModel);
 
 

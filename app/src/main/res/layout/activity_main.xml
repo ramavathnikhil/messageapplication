@@ -18,10 +18,10 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:background="@drawable/black_border_white"
-        android:hint="Search message"
+        android:hint="Search message or contact"
         android:visibility="gone"
         android:drawableLeft="@android:drawable/ic_menu_search"
-        android:padding="5dp" />
+        android:padding="@dimen/padding_5dp" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"

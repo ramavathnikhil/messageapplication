@@ -1,4 +1,4 @@
-package nikhil.com.smsapplication.Views;
+package messaging.com.smsapplication.Views;
 
 import android.os.Handler;
 import android.os.Message;
@@ -12,9 +12,7 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 
-/**
- * Created by Nikil on 1/26/2017.
- */
+
 public class SoftKeyboard implements View.OnFocusChangeListener
 {
     private static final int CLEAR_FOCUS = 0;

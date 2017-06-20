@@ -1,4 +1,4 @@
-package nikhil.com.smsapplication.Activites;
+package messaging.com.smsapplication.Activites;
 
 import android.Manifest;
 import android.content.ContentResolver;
@@ -25,7 +25,6 @@ import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
-import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.drive.Drive;
@@ -34,21 +33,19 @@ import com.google.android.gms.drive.DriveContents;
 import com.google.android.gms.drive.DriveFolder;
 import com.google.android.gms.drive.MetadataChangeSet;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
-import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
-import nikhil.com.smsapplication.Adapters.SmsAdapter;
-import nikhil.com.smsapplication.Models.SmsModel;
-import nikhil.com.smsapplication.R;
+import messaging.com.smsapplication.Adapters.SmsAdapter;
+import messaging.com.smsapplication.Models.SmsModel;
+import messaging.com.smsapplication.R;
 
 public class MainActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener {

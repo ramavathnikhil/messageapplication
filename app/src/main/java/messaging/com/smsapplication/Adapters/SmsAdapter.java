@@ -1,4 +1,4 @@
-package nikhil.com.smsapplication.Adapters;
+package messaging.com.smsapplication.Adapters;
 
 
 import android.content.ContentResolver;
@@ -11,7 +11,6 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.Contacts;
 import android.provider.ContactsContract;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -29,21 +28,15 @@ import java.io.InputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
-import nikhil.com.smsapplication.Activites.SendSmsActivity;
-import nikhil.com.smsapplication.Models.ContactModel;
-import nikhil.com.smsapplication.Models.SmsModel;
-import nikhil.com.smsapplication.R;
-import nikhil.com.smsapplication.Views.CircularImageview;
-
-import static android.content.ContentValues.TAG;
+import messaging.com.smsapplication.Activites.SendSmsActivity;
+import messaging.com.smsapplication.Models.ContactModel;
+import messaging.com.smsapplication.Models.SmsModel;
+import messaging.com.smsapplication.R;
+import messaging.com.smsapplication.Views.CircularImageview;
 
 
-/**
- * Created by a on 2/10/2017.
- */
 public class SmsAdapter extends RecyclerView.Adapter {
     private List<SmsModel> mDataSet = new ArrayList<>();
     private LayoutInflater mInflater;

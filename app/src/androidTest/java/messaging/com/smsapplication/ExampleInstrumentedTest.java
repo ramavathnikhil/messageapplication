@@ -1,4 +1,4 @@
-package nikhil.com.smsapplication;
+package messaging.com.smsapplication;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("nikhil.com.smsapplication", appContext.getPackageName());
+        assertEquals("messaging.com.smsapplication", appContext.getPackageName());
     }
 }

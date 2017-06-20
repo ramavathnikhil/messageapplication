@@ -1,10 +1,7 @@
-package nikhil.com.smsapplication.Models;
+package messaging.com.smsapplication.Models;
 
 import android.graphics.Bitmap;
 
-/**
- * Created by a on 2/10/2017.
- */
 
 public class ContactModel {
 

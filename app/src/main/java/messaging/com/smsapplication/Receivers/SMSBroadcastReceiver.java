@@ -1,7 +1,5 @@
-package nikhil.com.smsapplication.Receivers;
+package messaging.com.smsapplication.Receivers;
 
-import android.app.AlertDialog;
-import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
@@ -10,16 +8,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.telephony.SmsMessage;
-import android.util.Log;
-import android.view.WindowManager;
-import android.widget.Toast;
 
-import nikhil.com.smsapplication.Activites.MainActivity;
-import nikhil.com.smsapplication.R;
+import messaging.com.smsapplication.Activites.MainActivity;
+import messaging.com.smsapplication.R;
 
-/**
- * Created by Nikil on 2/10/2017.
- */
+
 public class SMSBroadcastReceiver extends BroadcastReceiver {
 
     @Override

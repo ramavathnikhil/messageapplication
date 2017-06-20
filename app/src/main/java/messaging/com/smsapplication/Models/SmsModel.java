@@ -1,8 +1,5 @@
-package nikhil.com.smsapplication.Models;
+package messaging.com.smsapplication.Models;
 
-/**
- * Created by a on 2/10/2017.
- */
 public class SmsModel{
     private String _id;
     private String _address;

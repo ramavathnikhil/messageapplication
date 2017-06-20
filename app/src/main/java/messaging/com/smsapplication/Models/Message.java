@@ -1,8 +1,6 @@
-package nikhil.com.smsapplication.Models;
+package messaging.com.smsapplication.Models;
 
-/**
- * Created by Nikil on 1/26/2017.
- */
+
 public class Message {
 
 

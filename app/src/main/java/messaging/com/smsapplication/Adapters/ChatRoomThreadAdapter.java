@@ -1,4 +1,4 @@
-package nikhil.com.smsapplication.Adapters;
+package messaging.com.smsapplication.Adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -14,13 +14,10 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-import nikhil.com.smsapplication.Models.Message;
-import nikhil.com.smsapplication.R;
+import messaging.com.smsapplication.Models.Message;
+import messaging.com.smsapplication.R;
 
 
-/**
- * Created by Nikil on 1/26/2017.
- */
 public class ChatRoomThreadAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private static String TAG = ChatRoomThreadAdapter.class.getSimpleName();

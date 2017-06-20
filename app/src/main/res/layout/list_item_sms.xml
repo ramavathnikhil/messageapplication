@@ -7,7 +7,7 @@
     android:padding="5dp">
 
 
-    <nikhil.com.smsapplication.Views.CircularImageview
+    <messaging.com.smsapplication.Views.CircularImageview
         android:layout_width="@dimen/circular_profile_pic_size"
         android:layout_height="@dimen/circular_profile_pic_size"
         android:src="@android:drawable/ic_menu_close_clear_cancel"

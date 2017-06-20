@@ -1,8 +1,5 @@
-package nikhil.com.smsapplication.Views;
+package messaging.com.smsapplication.Views;
 
-/**
- * Created by a on 2/10/2017.
- */
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -25,7 +22,7 @@ import android.support.annotation.DrawableRes;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
-import nikhil.com.smsapplication.R;
+import messaging.com.smsapplication.R;
 
 
 public class CircularImageview extends ImageView {

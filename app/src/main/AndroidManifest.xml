@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="nikhil.com.smsapplication">
+    package="messaging.com.smsapplication">
 
     <!-- permissions used in the application! -->
     <uses-permission android:name="android.permission.READ_SMS" />
@@ -29,7 +29,7 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />;
 
-        <activity android:name=".Activites.MainActivity">
+        <activity android:name="messaging.com.smsapplication.Activites.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -37,11 +37,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activites.SendSmsActivity"
+            android:name="messaging.com.smsapplication.Activites.SendSmsActivity"
             android:label="@string/title_activity_send_sms"
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
-        <receiver android:name=".Receivers.SMSBroadcastReceiver" android:exported="true" >
+        <receiver android:name="messaging.com.smsapplication.Receivers.SMSBroadcastReceiver" android:exported="true" >
             <intent-filter android:priority="999" >
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>

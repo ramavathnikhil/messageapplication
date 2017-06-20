@@ -1,4 +1,4 @@
-package nikhil.com.smsapplication.Activites;
+package messaging.com.smsapplication.Activites;
 
 import android.Manifest;
 import android.app.Service;
@@ -8,12 +8,10 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.speech.RecognizerIntent;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.widget.SimpleCursorAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -38,18 +36,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
-import nikhil.com.smsapplication.Adapters.ChatRoomThreadAdapter;
-import nikhil.com.smsapplication.Models.Message;
-import nikhil.com.smsapplication.Models.SmsModel;
-import nikhil.com.smsapplication.R;
-import nikhil.com.smsapplication.Views.SoftKeyboard;
+import messaging.com.smsapplication.Adapters.ChatRoomThreadAdapter;
+import messaging.com.smsapplication.Models.Message;
+import messaging.com.smsapplication.R;
+import messaging.com.smsapplication.Views.SoftKeyboard;
 
 public class SendSmsActivity extends AppCompatActivity {
 

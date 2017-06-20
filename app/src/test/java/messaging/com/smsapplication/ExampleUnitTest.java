@@ -1,4 +1,4 @@
-package nikhil.com.smsapplication;
+package messaging.com.smsapplication;
 
 import org.junit.Test;
 
